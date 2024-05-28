@@ -30,6 +30,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ID\": \"4\",\n    \"Item\": \"Build a Flutter App\",\n    \"Completed\": false\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:9999/todos",
 					"protocol": "http",
@@ -42,13 +51,72 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "addtodo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID\": \"4\",\n    \"Item\": \"Build a Flutter App\",\n    \"Completed\": false\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9999/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 May 2024 14:31:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4\",\n    \"item\": \"Build a Flutter App\",\n    \"completed\": false\n}"
+				}
+			]
 		},
 		{
 			"name": "gettodobyid",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9999/todos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"todos",
+						"5"
+					]
+				}
 			},
 			"response": []
 		},
@@ -56,7 +124,19 @@
 			"name": "deleteTodo",
 			"request": {
 				"method": "DELETE",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9999/todos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"todos",
+						"3"
+					]
+				}
 			},
 			"response": []
 		},
@@ -67,10 +147,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"4\",\n    \"item\": \"Build a non Flutter App\",\n    \"completed\": false\n}"
+					"raw": "{\n    \"id\": \"5\",\n    \"item\": \"Build a non Flutter App\",\n    \"completed\": false\n}"
 				},
 				"url": {
-					"raw": "http://localhost:9999/todos/4",
+					"raw": "http://localhost:9999/todos/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -78,7 +158,27 @@
 					"port": "9999",
 					"path": [
 						"todos",
-						"4"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SettodoAsCompleted",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9999/todos/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"todos",
+						"5"
 					]
 				}
 			},
