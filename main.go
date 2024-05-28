@@ -69,6 +69,18 @@ func updateTodos(c *gin.Context) {
 	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "todo not found"})
 }
 
+func setAsCompleted(c *gin.Context) {
+	id := c.Param("id")
+	for i, t := range todos {
+		if t.ID == id {
+			todos[i].Completed = true
+			c.IndentedJSON(http.StatusOK, gin.H{"message": "todo set as completed"})
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "todo not found"})
+}
+
 func main() {
 	router := gin.Default()
 	router.GET("/todos", getTodos)
@@ -76,5 +88,6 @@ func main() {
 	router.POST("/todos", addTodos)
 	router.DELETE("/todos/:id", deleteTodos)
 	router.PUT("/todos/:id", updateTodos)
+	router.PATCH("/todos/:id", setAsCompleted)
 	router.Run("localhost:9999")
 }
